@@ -18,6 +18,7 @@ package guru.sfg.beer.inventory.service.repositories;
 
 import guru.sfg.beer.inventory.service.domain.BeerInventory;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,7 +26,10 @@ import java.util.UUID;
 /**
  * Created by jt on 2019-01-26.
  */
+@Repository
 public interface BeerInventoryRepository extends JpaRepository<BeerInventory, UUID> {
 
     List<BeerInventory> findAllByBeerId(UUID beerId);
+
+    List<BeerInventory> findAllByUpc(String upc);
 }
